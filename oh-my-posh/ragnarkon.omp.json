@@ -1,0 +1,110 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "black": "#272c33",
+    "red": "#e78287",
+    "green": "#a7cb8b",
+    "yellow": "#daaa78",
+    "blue": "#71bdf2",
+    "magenta": "#d190e3",
+    "cyan": "#65c1cd",
+    "white": "#b9bfca"
+  },
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "p:white",
+          "style": "plain",
+          "template": "[",
+          "type": "text"
+        },
+        {
+          "foreground": "p:green",
+          "style": "plain",
+          "template": "{{ .UserName }}",
+          "type": "session"
+        },
+        {
+          "foreground": "p:white",
+          "style": "plain",
+          "template": "@",
+          "type": "text"
+        },
+        {
+          "foreground": "p:yellow",
+          "style": "plain",
+          "template": "{{ .HostName }}",
+          "type": "session"
+        },
+        {
+          "foreground": "p:white",
+          "style": "plain",
+          "template": ":",
+          "type": "text"
+        },
+        {
+          "foreground": "p:blue",
+          "properties": {
+            "style": "full"
+          },
+          "style": "plain",
+          "template": "{{ .Path }}",
+          "type": "path"
+        },
+        {
+          "foreground": "p:white",
+          "style": "plain",
+          "template": "]",
+          "type": "text"
+        },
+        {
+          "foreground": "p:red",
+          "style": "plain",
+          "template": " <#b9bfca>[</>{{ .Full }}<#b9bfca>]</>",
+          "type": "ruby"
+        },
+        {
+          "foreground": "p:green",
+          "style": "plain",
+          "template": " <#b9bfca>[</>{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}} \uF692 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }}<#b9bfca>]</>",
+          "type": "git"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "p:red",
+          "style": "plain",
+          "template": "\ue3bf ",
+          "type": "root"
+        },
+        {
+          "foreground": "p:white",
+          "style": "plain",
+          "template": "> ",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "right",
+      "segments": [
+        {
+          "foreground": "p:red",
+          "style": "plain",
+          "template": "{{ if gt .Code 0 }}{{ .Code }} \u21b5{{ end }}",
+          "type": "exit"
+        }
+      ],
+      "type": "rprompt"
+    }
+  ],
+  "version": 2
+}
